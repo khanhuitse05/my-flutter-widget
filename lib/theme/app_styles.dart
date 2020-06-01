@@ -33,4 +33,33 @@ class AppStyles {
   static const Color orangePastel = Color(0xFFFFF6E6);
   static const Color purplePastel = Color(0xFFF2F3FF);
   static const Color redPastel = Color(0xFFFFEBEE);
+  static Color colorLoop(int index) {
+    switch (index % 5) {
+      case 0:
+        return blue;
+      case 1:
+        return green;
+      case 2:
+        return orange;
+      case 3:
+        return red;
+      default:
+        return purple;
+    }
+  }
+
+  static Color colorLoopPastel(int index) {
+    switch (index % 5) {
+      case 0:
+        return bluePastel;
+      case 1:
+        return greenPastel;
+      case 2:
+        return orangePastel;
+      case 3:
+        return redPastel;
+      default:
+        return purplePastel;
+    }
+  }
 }

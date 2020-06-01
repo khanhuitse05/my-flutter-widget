@@ -30,21 +30,21 @@ class _HomeViewState extends State<HomeView> {
         ));
   }
 
-  final List<Menu> menus = [
-    Menu("Typography", body: "Typography", icon: Icons.text_fields),
-    Menu("Bottom app bar", body: "Bottom app bar", icon: Icons.menu),
-    Menu("Button", body: "", icon: Icons.get_app),
-    Menu("List", body: "", icon: Icons.get_app),
-    Menu("Card", body: "", icon: Icons.get_app),
-    Menu("Alerts", body: "", icon: Icons.get_app),
-    Menu("Tooltip", body: "SnackBar & Tooltip", icon: Icons.get_app),
-    Menu("Navigation", body: "", icon: Icons.get_app),
-    Menu("Icons", body: "", icon: Icons.get_app),
-    Menu("Forms", body: "", icon: Icons.get_app),
-    Menu("Align", body: "", icon: Icons.get_app),
-    Menu("Animation", body: "", icon: Icons.get_app),
-    Menu("AspectRatio", body: "", icon: Icons.get_app),
-    Menu("Baseline", body: "", icon: Icons.get_app),
-    Menu("BottomSheet", body: "", icon: Icons.get_app),
-  ];
+  List<Menu> get menus => [
+        Menu("Typography", body: "Typography", icon: Icons.text_fields),
+        Menu("Bottom app bar", body: "Bottom app bar", icon: Icons.menu),
+        Menu("Button", body: "Button", icon: Icons.web),
+        Menu("List", body: "List", icon: Icons.format_list_bulleted),
+        Menu("Card", body: "Card", icon: Icons.chrome_reader_mode),
+        Menu("List Title",
+            body: "List Title", icon: Icons.format_list_bulleted),
+        Menu("Alert",
+            body: "Alerts, SnackBar & Tooltip", icon: Icons.tab_unselected),
+        Menu("Text Field", body: "Text Field, Text Field Form", icon: Icons.menu),
+        Menu("Align", body: "", icon: Icons.get_app),
+        Menu("Animation", body: "", icon: Icons.get_app),
+        Menu("AspectRatio", body: "", icon: Icons.get_app),
+        Menu("Baseline", body: "", icon: Icons.get_app),
+        Menu("BottomSheet", body: "", icon: Icons.get_app),
+      ];
 }
