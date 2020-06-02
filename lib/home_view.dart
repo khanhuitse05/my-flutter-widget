@@ -40,11 +40,15 @@ class _HomeViewState extends State<HomeView> {
             body: "List Title", icon: Icons.format_list_bulleted),
         Menu("Alert",
             body: "Alerts, SnackBar & Tooltip", icon: Icons.tab_unselected),
-        Menu("Text Field", body: "Text Field, Text Field Form", icon: Icons.menu),
-        Menu("Align", body: "", icon: Icons.get_app),
+        Menu("Text Field",
+            body: "Text Field, Text Field Form", icon: Icons.menu),
+        Menu("Row & Column", body: "Row & Column", icon: Icons.graphic_eq),
+        Menu("Wrap & Chip", body: "Wrap & Chip", icon: Icons.edit_attributes),
+        Menu("Stack & Align", body: "Stack & Align", icon: Icons.content_copy),
+        Menu("Container",
+            body: "Container", icon: Icons.check_box_outline_blank),
         Menu("Animation", body: "", icon: Icons.get_app),
         Menu("AspectRatio", body: "", icon: Icons.get_app),
         Menu("Baseline", body: "", icon: Icons.get_app),
-        Menu("BottomSheet", body: "", icon: Icons.get_app),
       ];
 }

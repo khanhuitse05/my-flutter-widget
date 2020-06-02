@@ -4,10 +4,14 @@ import 'package:mywidget/view/alert_view.dart';
 import 'package:mywidget/view/button_view.dart';
 import 'package:mywidget/view/bottom_bar_view.dart';
 import 'package:mywidget/view/card_view.dart';
+import 'package:mywidget/view/container_view.dart';
+import 'package:mywidget/view/row_and_column_view.dart';
+import 'package:mywidget/view/stack_view.dart';
 import 'package:mywidget/view/text_field_view.dart';
 import 'package:mywidget/view/list_tile_view.dart';
 import 'package:mywidget/view/list_view.dart';
 import 'package:mywidget/view/typography_view.dart';
+import 'package:mywidget/view/wrap_view.dart';
 
 class AppRouter {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -41,6 +45,18 @@ class AppRouter {
       case '/text-field-view':
         return MaterialPageRoute(
             builder: (_) => TextFieldDemoView(), settings: settings);
+      case '/row-&-column-view':
+        return MaterialPageRoute(
+            builder: (_) => RowAndColumnView(), settings: settings);
+      case '/wrap-&-chip-view':
+        return MaterialPageRoute(
+            builder: (_) => WrapDemoView(), settings: settings);
+      case '/stack-&-align-view':
+        return MaterialPageRoute(
+            builder: (_) => StackAndAlignView(), settings: settings);
+      case '/container-view':
+        return MaterialPageRoute(
+            builder: (_) => ContainerDemoView(), settings: settings);
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(
