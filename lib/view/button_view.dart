@@ -97,9 +97,6 @@ class _ButtonViewState extends State<ButtonView> {
                       child: Text("Flat Button"),
                       onPressed: _onPressed,
                     ),
-                    Chip(
-                      label: Text("My Chip"),
-                    ),
                     Container(
                       padding: EdgeInsets.all(6),
                       margin: EdgeInsets.symmetric(horizontal: 8),
@@ -116,6 +113,27 @@ class _ButtonViewState extends State<ButtonView> {
                       onPressed: _onPressed,
                     )
                   ],
+                ),
+                Text(
+                  "Toggle Buttons",
+                  style: Theme.of(context).textTheme.headline6,
+                ),
+                const SizedBox(height: 8),
+                ToggleButtons(
+                  onPressed: (index) {
+                    setState(() {
+                      isSelected[index] = !isSelected[index];
+                    });
+                  },
+                  children: <Widget>[
+                    Icon(Icons.cake),
+                    Icon(Icons.directions_car),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 8),
+                      child: Text("Both All"),
+                    )
+                  ],
+                  isSelected: isSelected,
                 ),
                 Divider(height: 32),
                 Text(
@@ -200,6 +218,8 @@ class _ButtonViewState extends State<ButtonView> {
 
   String dropdownValue = 'One 1';
   int index = 0;
+
+  var isSelected = [false, false, true];
 
   void _onPressed() {}
 }

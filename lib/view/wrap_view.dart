@@ -34,13 +34,6 @@ class _WrapDemoViewState extends State<WrapDemoView> {
                 avatar: avatar ? _buildAvatar() : null,
                 shape: getShape(),
               ),
-              FilterChip(
-                label: Text("FilterChip"),
-                onSelected: (bool value) {},
-                elevation: elevation,
-                avatar: avatar ? _buildAvatar() : null,
-                shape: getShape(),
-              ),
               RawChip(
                 label: Text("RawChip"),
                 elevation: elevation,
@@ -56,16 +49,33 @@ class _WrapDemoViewState extends State<WrapDemoView> {
             runSpacing: runSpacing,
             children: <Widget>[
               ChoiceChip(
-                label: Text("ChoiceChip"),
+                label: Text("Disable"),
                 selected: false,
                 elevation: elevation,
                 avatar: avatar ? _buildAvatar() : null,
                 shape: getShape(),
               ),
               ChoiceChip(
-                label: Text("ChoiceChip"),
-                selected: true,
+                label: Text("Small"),
+                selected: choice == 1,
                 elevation: elevation,
+                onSelected: (value) {
+                  setState(() {
+                    choice = value ? 1 : 0;
+                  });
+                },
+                avatar: avatar ? _buildAvatar() : null,
+                shape: getShape(),
+              ),
+              ChoiceChip(
+                label: Text("Large"),
+                selected: choice == 2,
+                elevation: elevation,
+                onSelected: (value) {
+                  setState(() {
+                    choice = value ? 2 : 0;
+                  });
+                },
                 avatar: avatar ? _buildAvatar() : null,
                 shape: getShape(),
               ),
@@ -74,23 +84,34 @@ class _WrapDemoViewState extends State<WrapDemoView> {
           _buildTitle("Input Chip"),
           Wrap(spacing: spacing, runSpacing: runSpacing, children: <Widget>[
             InputChip(
-              label: Text("InputChip"),
+              label: Text("Disable"),
               elevation: elevation,
               onDeleted: deleteIcon ? () {} : null,
               shape: getShape(),
               selected: false,
-              onPressed: (){
-
-              },
             ),
             InputChip(
-              label: Text("InputChip"),
+              label: Text("iOS"),
               elevation: elevation,
               onDeleted: deleteIcon ? () {} : null,
               shape: getShape(),
-              selected: true,
-              onPressed: (){
-
+              selected: filterIOS,
+              onPressed: () {
+                setState(() {
+                  filterIOS = !filterIOS;
+                });
+              },
+            ),
+            InputChip(
+              label: Text("Android"),
+              elevation: elevation,
+              onDeleted: deleteIcon ? () {} : null,
+              shape: getShape(),
+              selected: filterAndroid,
+              onPressed: () {
+                setState(() {
+                  filterAndroid = !filterAndroid;
+                });
               },
             ),
           ]),
@@ -162,7 +183,7 @@ class _WrapDemoViewState extends State<WrapDemoView> {
                     value: spacing > 0,
                     onChanged: (value) {
                       setState(() {
-                        spacing = spacing == 0 ? 20 : 0;
+                        spacing = spacing == 0 ? 16 : 0;
                       });
                     },
                   )),
@@ -171,7 +192,7 @@ class _WrapDemoViewState extends State<WrapDemoView> {
                     value: runSpacing > 0,
                     onChanged: (value) {
                       setState(() {
-                        runSpacing = runSpacing == 0 ? 20 : 0;
+                        runSpacing = runSpacing == 0 ? 16 : 0;
                       });
                     },
                   )),
@@ -181,6 +202,10 @@ class _WrapDemoViewState extends State<WrapDemoView> {
       ),
     );
   }
+
+  bool filterIOS = false;
+  bool filterAndroid = true;
+  int choice = 1;
 
   double spacing = 20;
   double runSpacing = 0;
@@ -198,9 +223,12 @@ class _WrapDemoViewState extends State<WrapDemoView> {
   }
 
   Widget _buildTitle(String title) {
-    return Text(
-      title,
-      style: Theme.of(context).textTheme.headline6,
+    return Padding(
+      padding: const EdgeInsets.only(top: 16, bottom: 8),
+      child: Text(
+        title,
+        style: Theme.of(context).textTheme.subtitle2,
+      ),
     );
   }
 

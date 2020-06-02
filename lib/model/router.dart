@@ -5,6 +5,7 @@ import 'package:mywidget/view/button_view.dart';
 import 'package:mywidget/view/bottom_bar_view.dart';
 import 'package:mywidget/view/card_view.dart';
 import 'package:mywidget/view/container_view.dart';
+import 'package:mywidget/view/other_view.dart';
 import 'package:mywidget/view/row_and_column_view.dart';
 import 'package:mywidget/view/stack_view.dart';
 import 'package:mywidget/view/text_field_view.dart';
@@ -57,6 +58,9 @@ class AppRouter {
       case '/container-view':
         return MaterialPageRoute(
             builder: (_) => ContainerDemoView(), settings: settings);
+      case '/other-view':
+        return MaterialPageRoute(
+            builder: (_) => OtherView(), settings: settings);
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(

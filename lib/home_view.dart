@@ -47,8 +47,7 @@ class _HomeViewState extends State<HomeView> {
         Menu("Stack & Align", body: "Stack & Align", icon: Icons.content_copy),
         Menu("Container",
             body: "Container", icon: Icons.check_box_outline_blank),
-        Menu("Animation", body: "", icon: Icons.get_app),
-        Menu("AspectRatio", body: "", icon: Icons.get_app),
-        Menu("Baseline", body: "", icon: Icons.get_app),
+        Menu("Other",
+            body: "Sliders, Indicators, Selections", icon: Icons.donut_large),
       ];
 }
