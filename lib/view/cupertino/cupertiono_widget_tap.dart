@@ -24,6 +24,11 @@ class _CupertinoWidgetTapState extends State<CupertinoWidgetTap> {
           CupertinoSliverNavigationBar(
             automaticallyImplyLeading: false,
             largeTitle: Text("Widget"),
+            leading: CupertinoButton(
+              child: Icon(CupertinoIcons.back),
+              onPressed: () {
+              },
+            ),
           ),
           CupertinoSliverRefreshControl(
             onRefresh: () {

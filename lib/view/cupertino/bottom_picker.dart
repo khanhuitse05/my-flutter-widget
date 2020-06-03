@@ -37,8 +37,8 @@ class BottomPicker extends StatelessWidget {
   }
 }
 
-class Menu extends StatelessWidget {
-  const Menu({
+class MenuCupertino extends StatelessWidget {
+  const MenuCupertino({
     Key key,
     @required this.children,
   })  : assert(children != null),

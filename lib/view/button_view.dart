@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'package:mywidget/ui/default_title.dart';
 
 class ButtonView extends StatefulWidget {
   @override
@@ -11,18 +11,17 @@ class _ButtonViewState extends State<ButtonView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Button"),),
+      appBar: AppBar(
+        title: Text("Button"),
+      ),
       body: CustomScrollView(
         slivers: <Widget>[
-          SliverPadding(
-            padding: EdgeInsets.all(16),
-            sliver: SliverList(
-              delegate: SliverChildListDelegate([
-                Text(
-                  "Normal Button",
-                  style: Theme.of(context).textTheme.headline6,
-                ),
-                Wrap(
+          SliverList(
+            delegate: SliverChildListDelegate([
+              DefaultTitle("Normal Button"),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: Wrap(
                   spacing: 20,
                   runSpacing: 16,
                   children: <Widget>[
@@ -57,12 +56,12 @@ class _ButtonViewState extends State<ButtonView> {
                     ),
                   ],
                 ),
-                Divider(height: 32),
-                Text(
-                  "Primary Button",
-                  style: Theme.of(context).textTheme.headline6,
-                ),
-                ButtonTheme(
+              ),
+              Divider(height: 16),
+              DefaultTitle("Primary Button"),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: ButtonTheme(
                   textTheme: ButtonTextTheme.primary,
                   child: Wrap(
                     spacing: 20,
@@ -86,40 +85,38 @@ class _ButtonViewState extends State<ButtonView> {
                     ],
                   ),
                 ),
-                Divider(height: 32),
-                Text(
-                  "Button Bar",
-                  style: Theme.of(context).textTheme.headline6,
-                ),
-                ButtonBar(
-                  children: <Widget>[
-                    FlatButton(
-                      child: Text("Flat Button"),
-                      onPressed: _onPressed,
+              ),
+              Divider(height: 16),
+              DefaultTitle("Button Bar"),
+              ButtonBar(
+                children: <Widget>[
+                  FlatButton(
+                    child: Text("Flat Button"),
+                    onPressed: _onPressed,
+                  ),
+                  Container(
+                    padding: EdgeInsets.all(6),
+                    margin: EdgeInsets.symmetric(horizontal: 8),
+                    decoration: BoxDecoration(
+                        color: Colors.green, shape: BoxShape.circle),
+                    child: Icon(
+                      Icons.extension,
+                      color: Colors.white,
+                      size: 20,
                     ),
-                    Container(
-                      padding: EdgeInsets.all(6),
-                      margin: EdgeInsets.symmetric(horizontal: 8),
-                      decoration: BoxDecoration(
-                          color: Colors.green, shape: BoxShape.circle),
-                      child: Icon(
-                        Icons.extension,
-                        color: Colors.white,
-                        size: 20,
-                      ),
-                    ),
-                    IconButton(
-                      icon: Icon(Icons.menu),
-                      onPressed: _onPressed,
-                    )
-                  ],
-                ),
-                Text(
-                  "Toggle Buttons",
-                  style: Theme.of(context).textTheme.headline6,
-                ),
-                const SizedBox(height: 8),
-                ToggleButtons(
+                  ),
+                  IconButton(
+                    icon: Icon(Icons.menu),
+                    onPressed: _onPressed,
+                  )
+                ],
+              ),
+              Divider(height: 16),
+              DefaultTitle("Toggle Buttons"),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                child: ToggleButtons(
                   onPressed: (index) {
                     setState(() {
                       isSelected[index] = !isSelected[index];
@@ -135,16 +132,14 @@ class _ButtonViewState extends State<ButtonView> {
                   ],
                   isSelected: isSelected,
                 ),
-                Divider(height: 32),
-                Text(
-                  "Menu Button",
-                  style: Theme.of(context).textTheme.headline6,
-                ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 16),
-                  child: Text("Dropdown Button"),
-                ),
-                DropdownButton<String>(
+              ),
+              Divider(height: 16),
+              DefaultTitle(
+                "Dropdown Button",
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: DropdownButton<String>(
                   value: dropdownValue,
                   isExpanded: true,
                   icon: Icon(Icons.arrow_downward),
@@ -163,48 +158,48 @@ class _ButtonViewState extends State<ButtonView> {
                     );
                   }).toList(),
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 16),
-                  child: Row(
-                    children: <Widget>[
-                      Expanded(
-                        child: Text(
-                          "Popup Menu Button",
-                          maxLines: 1,
-                        ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
+                child: Row(
+                  children: <Widget>[
+                    Expanded(
+                      child: Text(
+                        "Popup Menu Button",
+                        maxLines: 1,
                       ),
-                      PopupMenuButton<int>(
-                        icon: Icon(Icons.filter),
-                        onSelected: (result) {
-                          setState(() {
-                            index = result;
-                          });
-                        },
-                        itemBuilder: (BuildContext context) =>
-                            <PopupMenuEntry<int>>[
-                          PopupMenuItem<int>(
-                            value: 0,
-                            child: Text('All'),
-                          ),
-                          PopupMenuItem<int>(
-                            value: 1,
-                            child: Text('1 day'),
-                          ),
-                          PopupMenuItem<int>(
-                            value: 2,
-                            child: Text('2 days'),
-                          ),
-                          PopupMenuItem<int>(
-                            value: 3,
-                            child: Text('3 days'),
-                          ),
-                        ],
-                      )
-                    ],
-                  ),
+                    ),
+                    PopupMenuButton<int>(
+                      icon: Icon(Icons.filter),
+                      onSelected: (result) {
+                        setState(() {
+                          index = result;
+                        });
+                      },
+                      itemBuilder: (BuildContext context) =>
+                          <PopupMenuEntry<int>>[
+                        PopupMenuItem<int>(
+                          value: 0,
+                          child: Text('All'),
+                        ),
+                        PopupMenuItem<int>(
+                          value: 1,
+                          child: Text('1 day'),
+                        ),
+                        PopupMenuItem<int>(
+                          value: 2,
+                          child: Text('2 days'),
+                        ),
+                        PopupMenuItem<int>(
+                          value: 3,
+                          child: Text('3 days'),
+                        ),
+                      ],
+                    )
+                  ],
                 ),
-              ]),
-            ),
+              ),
+            ]),
           ),
           SliverToBoxAdapter(
             child: SizedBox(

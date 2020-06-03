@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mywidget/ui/button_title.dart';
+import 'package:mywidget/ui/default_title.dart';
 
 class BottomBarView extends StatefulWidget {
   @override
@@ -13,32 +15,31 @@ class _BottomBarViewState extends State<BottomBarView> {
         title: Text("Bottom App Bar View"),
       ),
       body: ListView(
-        padding: EdgeInsets.all(16),
+        padding: EdgeInsets.symmetric(vertical: 16),
         children: <Widget>[
-          _buildSwitch("Float Action Button",
-              child: Switch(
-                value: showFloat,
-                onChanged: (value) {
-                  setState(() {
-                    showFloat = value;
-                  });
-                },
-              )),
-          _buildSwitch("Notch",
-              child: Switch(
-                value: notch,
-                onChanged: (value) {
-                  setState(() {
-                    notch = value;
-                  });
-                },
-              )),
-          Divider(
-            height: 32,
+          SwitchListTile(
+            title: Text("Float Action Button"),
+            value: showFloat,
+            onChanged: (value) {
+              setState(() {
+                showFloat = value;
+              });
+            },
           ),
-          Text(
+          SwitchListTile(
+            title: Text("Notch"),
+            value: notch,
+            onChanged: (value) {
+              setState(() {
+                notch = value;
+              });
+            },
+          ),
+          Divider(
+            height: 16,
+          ),
+          DefaultTitle(
             "Float Action Button Position",
-            style: Theme.of(context).textTheme.subtitle1,
           ),
           RadioListTile<FloatingActionButtonLocation>(
             title: Text("Docked - End"),
@@ -114,15 +115,4 @@ class _BottomBarViewState extends State<BottomBarView> {
   bool notch = true;
   FloatingActionButtonLocation floatLocation =
       FloatingActionButtonLocation.endDocked;
-
-  Widget _buildSwitch(String title, {Widget child}) {
-    return Row(
-      children: <Widget>[
-        Expanded(
-          child: Text(title),
-        ),
-        child
-      ],
-    );
-  }
 }

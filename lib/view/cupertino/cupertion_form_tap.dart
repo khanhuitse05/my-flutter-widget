@@ -13,7 +13,6 @@ class CupertinoFormTap extends StatefulWidget {
 }
 
 class _CupertinoFormTapState extends State<CupertinoFormTap> {
-
   int segmentedValue = 0;
   Duration timer = const Duration();
   DateTime date = DateTime.now();
@@ -31,6 +30,11 @@ class _CupertinoFormTapState extends State<CupertinoFormTap> {
           CupertinoSliverNavigationBar(
             automaticallyImplyLeading: false,
             largeTitle: Text("Form"),
+            trailing: CupertinoButton(
+              child: Icon(CupertinoIcons.phone),
+              onPressed: () {
+              },
+            ),
           ),
           SliverList(
             delegate: SliverChildListDelegate([
@@ -77,7 +81,8 @@ class _CupertinoFormTapState extends State<CupertinoFormTap> {
                 },
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
                 child: CupertinoSlidingSegmentedControl(
                   groupValue: segmentedValue,
                   onValueChanged: (value) {
@@ -100,7 +105,6 @@ class _CupertinoFormTapState extends State<CupertinoFormTap> {
     );
   }
 
-
   Widget _buildDatePicker(BuildContext context) {
     return GestureDetector(
       onTap: () {
@@ -110,7 +114,7 @@ class _CupertinoFormTapState extends State<CupertinoFormTap> {
             return BottomPicker(
               child: CupertinoDatePicker(
                 backgroundColor:
-                CupertinoColors.systemBackground.resolveFrom(context),
+                    CupertinoColors.systemBackground.resolveFrom(context),
                 mode: CupertinoDatePickerMode.date,
                 initialDateTime: date,
                 onDateTimeChanged: (newDateTime) {
@@ -121,7 +125,7 @@ class _CupertinoFormTapState extends State<CupertinoFormTap> {
           },
         );
       },
-      child: Menu(children: [
+      child: MenuCupertino(children: [
         Text("Pick date"),
         Text(
           DateFormat.yMMMMd().format(date),
@@ -140,7 +144,7 @@ class _CupertinoFormTapState extends State<CupertinoFormTap> {
             return BottomPicker(
               child: CupertinoDatePicker(
                 backgroundColor:
-                CupertinoColors.systemBackground.resolveFrom(context),
+                    CupertinoColors.systemBackground.resolveFrom(context),
                 mode: CupertinoDatePickerMode.time,
                 initialDateTime: time,
                 onDateTimeChanged: (newDateTime) {
@@ -151,7 +155,7 @@ class _CupertinoFormTapState extends State<CupertinoFormTap> {
           },
         );
       },
-      child: Menu(
+      child: MenuCupertino(
         children: [
           Text("Pick Time"),
           Text(
@@ -172,7 +176,7 @@ class _CupertinoFormTapState extends State<CupertinoFormTap> {
             return BottomPicker(
               child: CupertinoDatePicker(
                 backgroundColor:
-                CupertinoColors.systemBackground.resolveFrom(context),
+                    CupertinoColors.systemBackground.resolveFrom(context),
                 mode: CupertinoDatePickerMode.dateAndTime,
                 initialDateTime: dateTime,
                 onDateTimeChanged: (newDateTime) {
@@ -183,7 +187,7 @@ class _CupertinoFormTapState extends State<CupertinoFormTap> {
           },
         );
       },
-      child: Menu(
+      child: MenuCupertino(
         children: [
           Text("Pick Date Time"),
           Flexible(
@@ -206,7 +210,7 @@ class _CupertinoFormTapState extends State<CupertinoFormTap> {
             return BottomPicker(
               child: CupertinoTimerPicker(
                 backgroundColor:
-                CupertinoColors.systemBackground.resolveFrom(context),
+                    CupertinoColors.systemBackground.resolveFrom(context),
                 initialTimerDuration: timer,
                 onTimerDurationChanged: (newTimer) {
                   setState(() => timer = newTimer);
@@ -216,13 +220,13 @@ class _CupertinoFormTapState extends State<CupertinoFormTap> {
           },
         );
       },
-      child: Menu(
+      child: MenuCupertino(
         children: [
           Text("Pick time"),
           Text(
             '${timer.inHours}:'
-                '${(timer.inMinutes % 60).toString().padLeft(2, '0')}:'
-                '${(timer.inSeconds % 60).toString().padLeft(2, '0')}',
+            '${(timer.inMinutes % 60).toString().padLeft(2, '0')}:'
+            '${(timer.inSeconds % 60).toString().padLeft(2, '0')}',
             style: const TextStyle(color: CupertinoColors.inactiveGray),
           ),
         ],

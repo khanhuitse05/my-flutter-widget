@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mywidget/core/constans.dart';
 
-
 class ListTitleView extends StatefulWidget {
   @override
   _ListTitleViewState createState() => _ListTitleViewState();
@@ -39,22 +38,46 @@ class _ListTitleViewState extends State<ListTitleView> {
         body: ListView(
           padding: EdgeInsets.symmetric(vertical: 16),
           children: <Widget>[
-            _buildController("Selected", value: selected, onChange: (value) {
-              selected = value;
-            }),
-            _buildController("Leading", value: leading, onChange: (value) {
-              leading = value;
-            }),
-            _buildController("Trailing", value: trailing, onChange: (value) {
-              trailing = value;
-            }),
-            _buildController("IsThreeLine", value: isThreeLine,
-                onChange: (value) {
-              isThreeLine = value;
-            }),
-            _buildController("Dense", value: dense, onChange: (value) {
-              dense = value;
-            }),
+            SwitchListTile(
+                title: Text("Selected"),
+                value: selected,
+                onChanged: (value) {
+                  setState(() {
+                    selected = value;
+                  });
+                }),
+            SwitchListTile(
+                title: Text("Leading"),
+                value: leading,
+                onChanged: (value) {
+                  setState(() {
+                    leading = value;
+                  });
+                }),
+            SwitchListTile(
+                title: Text("Trailing"),
+                value: trailing,
+                onChanged: (value) {
+                  setState(() {
+                    trailing = value;
+                  });
+                }),
+            SwitchListTile(
+                title: Text("IsThreeLine"),
+                value: isThreeLine,
+                onChanged: (value) {
+                  setState(() {
+                    isThreeLine = value;
+                  });
+                }),
+            SwitchListTile(
+                title: Text("Dense"),
+                value: dense,
+                onChanged: (value) {
+                  setState(() {
+                    dense = value;
+                  });
+                }),
           ],
         ));
   }
@@ -64,22 +87,4 @@ class _ListTitleViewState extends State<ListTitleView> {
   bool isThreeLine = false;
   bool dense = true;
   bool selected = true;
-
-  Widget _buildController(title, {value, onChange}) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
-      child: Row(children: <Widget>[
-        Expanded(
-          child: Text(title),
-        ),
-        Switch(
-            value: value,
-            onChanged: (value) {
-              setState(() {
-                onChange(value);
-              });
-            }),
-      ]),
-    );
-  }
 }

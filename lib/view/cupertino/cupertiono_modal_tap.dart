@@ -21,6 +21,11 @@ class _CupertinoModalTapState extends State<CupertinoModalTap> {
           CupertinoSliverNavigationBar(
             automaticallyImplyLeading: false,
             largeTitle: Text("Alerts"),
+            trailing: CupertinoButton(
+              child: Icon(CupertinoIcons.settings),
+              onPressed: () {
+              },
+            ),
           ),
           SliverList(
             delegate: SliverChildListDelegate([

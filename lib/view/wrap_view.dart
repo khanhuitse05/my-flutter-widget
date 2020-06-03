@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mywidget/ui/default_title.dart';
 
 class WrapDemoView extends StatefulWidget {
   @override
@@ -15,7 +16,7 @@ class _WrapDemoViewState extends State<WrapDemoView> {
       body: ListView(
         padding: EdgeInsets.all(16),
         children: <Widget>[
-          _buildTitle("Chip Chip"),
+          DefaultTitle("Chip Chip"),
           Wrap(
             spacing: spacing,
             runSpacing: runSpacing,
@@ -43,7 +44,7 @@ class _WrapDemoViewState extends State<WrapDemoView> {
               ),
             ],
           ),
-          _buildTitle("Choice Chip"),
+          DefaultTitle("Choice Chip"),
           Wrap(
             spacing: spacing,
             runSpacing: runSpacing,
@@ -81,7 +82,7 @@ class _WrapDemoViewState extends State<WrapDemoView> {
               ),
             ],
           ),
-          _buildTitle("Input Chip"),
+          DefaultTitle("Input Chip"),
           Wrap(spacing: spacing, runSpacing: runSpacing, children: <Widget>[
             InputChip(
               label: Text("Disable"),
@@ -119,83 +120,114 @@ class _WrapDemoViewState extends State<WrapDemoView> {
       ),
       bottomNavigationBar: BottomAppBar(
         child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 16),
-          child: Wrap(
-            spacing: 20,
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
             children: <Widget>[
-              _buildController("elevation",
-                  child: Switch(
-                    value: elevation > 0,
-                    onChanged: (value) {
-                      setState(() {
-                        elevation = elevation == 0 ? 5 : 0;
-                      });
-                    },
-                  )),
-              _buildController("avatar",
-                  child: Switch(
-                    value: avatar,
-                    onChanged: (value) {
-                      setState(() {
-                        avatar = value;
-                      });
-                    },
-                  )),
-              _buildController("deleteIcon",
-                  child: Switch(
-                    value: deleteIcon,
-                    onChanged: (value) {
-                      setState(() {
-                        deleteIcon = value;
-                      });
-                    },
-                  )),
-              _buildController("shape: ",
-                  child: DropdownButton<EBorder>(
-                    value: border,
-                    icon: Icon(Icons.keyboard_arrow_down),
-                    onChanged: (newValue) {
-                      setState(() {
-                        border = newValue;
-                      });
-                    },
-                    items: [
-                      DropdownMenuItem<EBorder>(
-                        value: EBorder.StadiumBorder,
-                        child: Text("Stadium"),
+              Row(
+                children: <Widget>[
+                  Expanded(
+                    child: SwitchListTile(
+                      title: Text("elevation",
+                          style: Theme.of(context).textTheme.caption),
+                      value: elevation > 0,
+                      onChanged: (value) {
+                        setState(() {
+                          elevation = elevation == 0 ? 5 : 0;
+                        });
+                      },
+                    ),
+                  ),
+                  Expanded(
+                    child: SwitchListTile(
+                      title: Text("avatar",
+                          style: Theme.of(context).textTheme.caption),
+                      value: avatar,
+                      onChanged: (value) {
+                        setState(() {
+                          avatar = value;
+                        });
+                      },
+                    ),
+                  ),
+                ],
+              ),
+              Row(
+                children: <Widget>[
+                  Expanded(
+                    child: SwitchListTile(
+                      title: Text("deleteIcon",
+                          style: Theme.of(context).textTheme.caption),
+                      value: deleteIcon,
+                      onChanged: (value) {
+                        setState(() {
+                          deleteIcon = value;
+                        });
+                      },
+                    ),
+                  ),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      child: DropdownButton<EBorder>(
+                        value: border,
+                        style: Theme.of(context).textTheme.caption,
+                        icon: Icon(Icons.keyboard_arrow_down),
+                        onChanged: (newValue) {
+                          setState(() {
+                            border = newValue;
+                          });
+                        },
+                        items: [
+                          DropdownMenuItem<EBorder>(
+                            value: EBorder.StadiumBorder,
+                            child: Text("Stadium"),
+                          ),
+                          DropdownMenuItem<EBorder>(
+                            value: EBorder.UnderlineInputBorder,
+                            child: Text("UnderlineInput"),
+                          ),
+                          DropdownMenuItem<EBorder>(
+                            value: EBorder.BeveledRectangleBorder,
+                            child: Text("BeveledRectangle"),
+                          ),
+                          DropdownMenuItem<EBorder>(
+                            value: EBorder.RoundedRectangleBorder,
+                            child: Text("RoundedRectangle"),
+                          )
+                        ],
                       ),
-                      DropdownMenuItem<EBorder>(
-                        value: EBorder.UnderlineInputBorder,
-                        child: Text("UnderlineInput"),
-                      ),
-                      DropdownMenuItem<EBorder>(
-                        value: EBorder.BeveledRectangleBorder,
-                        child: Text("BeveledRectangle"),
-                      ),
-                      DropdownMenuItem<EBorder>(
-                        value: EBorder.RoundedRectangleBorder,
-                        child: Text("RoundedRectangle"),
-                      )
-                    ],
-                  )),
-              _buildController("spacing",
-                  child: Switch(
-                    value: spacing > 0,
-                    onChanged: (value) {
-                      setState(() {
-                        spacing = spacing == 0 ? 16 : 0;
-                      });
-                    },
-                  )),
-              _buildController("runSpacing",
-                  child: Switch(
-                    value: runSpacing > 0,
-                    onChanged: (value) {
-                      setState(() {
-                        runSpacing = runSpacing == 0 ? 16 : 0;
-                      });
-                    },
-                  )),
+                    ),
+                  ),
+                ],
+              ),
+              Row(
+                children: <Widget>[
+                  Expanded(
+                    child: SwitchListTile(
+                      title: Text("spacing",
+                          style: Theme.of(context).textTheme.caption),
+                      value: spacing > 0,
+                      onChanged: (value) {
+                        setState(() {
+                          spacing = spacing == 0 ? 16 : 0;
+                        });
+                      },
+                    ),
+                  ),
+                  Expanded(
+                    child: SwitchListTile(
+                      title: Text("runSpacing",
+                          style: Theme.of(context).textTheme.caption),
+                      value: runSpacing > 0,
+                      onChanged: (value) {
+                        setState(() {
+                          runSpacing = runSpacing == 0 ? 16 : 0;
+                        });
+                      },
+                    ),
+                  ),
+                ],
+              ),
             ],
           ),
         ),
@@ -214,23 +246,6 @@ class _WrapDemoViewState extends State<WrapDemoView> {
   bool deleteIcon = false;
 
   EBorder border = EBorder.StadiumBorder;
-
-  Widget _buildController(String title, {Widget child}) {
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      children: <Widget>[Text(title), child],
-    );
-  }
-
-  Widget _buildTitle(String title) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 16, bottom: 8),
-      child: Text(
-        title,
-        style: Theme.of(context).textTheme.subtitle2,
-      ),
-    );
-  }
 
   Widget _buildAvatar() {
     return CircleAvatar(

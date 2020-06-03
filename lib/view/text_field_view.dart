@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class TextFieldDemoView extends StatefulWidget {
   @override
   _TextFieldDemoViewState createState() => _TextFieldDemoViewState();
@@ -51,44 +50,102 @@ class _TextFieldDemoViewState extends State<TextFieldDemoView> {
       body: ListView(
         padding: EdgeInsets.all(16),
         children: <Widget>[
-          _buildController("Hint Text", value: hintText, onChange: (value) {
-            hintText = value;
-          }),
-          _buildController("Label Text", value: labelText, onChange: (value) {
-            labelText = value;
-          }),
-          _buildController("Help Text", value: helpText, onChange: (value) {
-            helpText = value;
-          }),
-          _buildController("Error Text", value: errorText, onChange: (value) {
-            errorText = value;
-          }),
-          _buildController("Counter Text", value: counterText,
-              onChange: (value) {
-            counterText = value;
-          }),
-          _buildController("Prefix", value: prefix, onChange: (value) {
-            prefix = value;
-          }),
-          _buildController("Suffix", value: suffix, onChange: (value) {
-            suffix = value;
-          }),
-          _buildController("Prefix Icon", value: prefixIcon, onChange: (value) {
-            prefixIcon = value;
-          }),
-          _buildController("Suffix Icon", value: suffixIcon, onChange: (value) {
-            suffixIcon = value;
-          }),
-          _buildController("Is Dense", value: isDense, onChange: (value) {
-            isDense = value;
-          }),
-          _buildController("Filled", value: filled, onChange: (value) {
-            filled = value;
-          }),
-          _buildController("Align Label With Hint", value: alignLabelWithHint,
-              onChange: (value) {
-            alignLabelWithHint = value;
-          }),
+          SwitchListTile(
+              title: Text("Hint Text"),
+              value: hintText,
+              onChanged: (value) {
+                setState(() {
+                  hintText = value;
+                });
+              }),
+          SwitchListTile(
+              title: Text("Label Text"),
+              value: labelText,
+              onChanged: (value) {
+                setState(() {
+                  labelText = value;
+                });
+              }),
+          SwitchListTile(
+              title: Text("Help Text"),
+              value: helpText,
+              onChanged: (value) {
+                setState(() {
+                  helpText = value;
+                });
+              }),
+          SwitchListTile(
+              title: Text("Error Text"),
+              value: errorText,
+              onChanged: (value) {
+                setState(() {
+                  errorText = value;
+                });
+              }),
+          SwitchListTile(
+              title: Text("Counter Text"),
+              value: counterText,
+              onChanged: (value) {
+                setState(() {
+                  counterText = value;
+                });
+              }),
+          SwitchListTile(
+              title: Text("Prefix"),
+              value: prefix,
+              onChanged: (value) {
+                setState(() {
+                  prefix = value;
+                });
+              }),
+          SwitchListTile(
+              title: Text("Suffix"),
+              value: suffix,
+              onChanged: (value) {
+                setState(() {
+                  suffix = value;
+                });
+              }),
+          SwitchListTile(
+              title: Text("Prefix Icon"),
+              value: prefixIcon,
+              onChanged: (value) {
+                setState(() {
+                  prefixIcon = value;
+                });
+              }),
+          SwitchListTile(
+              title: Text("Suffix Icon"),
+              value: suffixIcon,
+              onChanged: (value) {
+                setState(() {
+                  suffixIcon = value;
+                });
+              }),
+          SwitchListTile(
+              title: Text("Is Dense"),
+              value: isDense,
+              onChanged: (value) {
+                setState(() {
+                  isDense = value;
+                });
+              }),
+          SwitchListTile(
+              title: Text("Filled"),
+              value: filled,
+              onChanged: (value) {
+                setState(() {
+                  filled = value;
+                });
+              }),
+          SwitchListTile(
+              title: Text("Align Label With Hint"),
+              value: alignLabelWithHint,
+              onChanged: (value) {
+                setState(() {
+                  alignLabelWithHint = value;
+                });
+              }),
         ],
       ),
     );
@@ -106,22 +163,4 @@ class _TextFieldDemoViewState extends State<TextFieldDemoView> {
   bool counterText = false;
   bool filled = false;
   bool alignLabelWithHint = false;
-
-  Widget _buildController(title, {value, onChange}) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
-      child: Row(children: <Widget>[
-        Expanded(
-          child: Text(title),
-        ),
-        Switch(
-            value: value,
-            onChanged: (value) {
-              setState(() {
-                onChange(value);
-              });
-            }),
-      ]),
-    );
-  }
 }

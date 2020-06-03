@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mywidget/theme/app_styles.dart';
+import 'package:mywidget/ui/button_title.dart';
 
 class StackAndAlignView extends StatefulWidget {
   @override
@@ -41,79 +42,62 @@ class _StackAndAlignViewState extends State<StackAndAlignView> {
         ),
       ),
       bottomNavigationBar: BottomAppBar(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              _buildController("alignment: ",
-                  child: DropdownButton<AlignmentGeometry>(
-                    value: alignment,
-                    icon: Icon(Icons.keyboard_arrow_down),
-                    onChanged: (newValue) {
-                      setState(() {
-                        alignment = newValue;
-                      });
-                    },
-                    items: [
-                      DropdownMenuItem<AlignmentGeometry>(
-                        value: Alignment.center,
-                        child: Text("center"),
-                      ),
-                      DropdownMenuItem<AlignmentGeometry>(
-                        value: Alignment.centerLeft,
-                        child: Text("centerLeft"),
-                      ),
-                      DropdownMenuItem<AlignmentGeometry>(
-                        value: Alignment.centerRight,
-                        child: Text("centerRight"),
-                      ),
-                      DropdownMenuItem<AlignmentGeometry>(
-                        value: Alignment.bottomLeft,
-                        child: Text("bottomLeft"),
-                      ),
-                      DropdownMenuItem<AlignmentGeometry>(
-                        value: Alignment.bottomRight,
-                        child: Text("bottomRight"),
-                      ),
-                      DropdownMenuItem<AlignmentGeometry>(
-                        value: Alignment.bottomCenter,
-                        child: Text("bottomCenter"),
-                      ),
-                      DropdownMenuItem<AlignmentGeometry>(
-                        value: Alignment.topRight,
-                        child: Text("topRight"),
-                      ),
-                      DropdownMenuItem<AlignmentGeometry>(
-                        value: Alignment.topCenter,
-                        child: Text("topCenter"),
-                      ),
-                      DropdownMenuItem<AlignmentGeometry>(
-                        value: Alignment.topLeft,
-                        child: Text("topLeft"),
-                      ),
-                    ],
-                  )),
-            ],
-          ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            ButtonTitle("alignment: ",
+                child: DropdownButton<AlignmentGeometry>(
+                  value: alignment,
+                  icon: Icon(Icons.keyboard_arrow_down),
+                  onChanged: (newValue) {
+                    setState(() {
+                      alignment = newValue;
+                    });
+                  },
+                  items: [
+                    DropdownMenuItem<AlignmentGeometry>(
+                      value: Alignment.center,
+                      child: Text("center"),
+                    ),
+                    DropdownMenuItem<AlignmentGeometry>(
+                      value: Alignment.centerLeft,
+                      child: Text("centerLeft"),
+                    ),
+                    DropdownMenuItem<AlignmentGeometry>(
+                      value: Alignment.centerRight,
+                      child: Text("centerRight"),
+                    ),
+                    DropdownMenuItem<AlignmentGeometry>(
+                      value: Alignment.bottomLeft,
+                      child: Text("bottomLeft"),
+                    ),
+                    DropdownMenuItem<AlignmentGeometry>(
+                      value: Alignment.bottomRight,
+                      child: Text("bottomRight"),
+                    ),
+                    DropdownMenuItem<AlignmentGeometry>(
+                      value: Alignment.bottomCenter,
+                      child: Text("bottomCenter"),
+                    ),
+                    DropdownMenuItem<AlignmentGeometry>(
+                      value: Alignment.topRight,
+                      child: Text("topRight"),
+                    ),
+                    DropdownMenuItem<AlignmentGeometry>(
+                      value: Alignment.topCenter,
+                      child: Text("topCenter"),
+                    ),
+                    DropdownMenuItem<AlignmentGeometry>(
+                      value: Alignment.topLeft,
+                      child: Text("topLeft"),
+                    ),
+                  ],
+                )),
+          ],
         ),
       ),
     );
   }
 
   AlignmentGeometry alignment = Alignment.center;
-
-  Widget _buildController(String title, {Widget child}) {
-    return Container(
-      height: 50,
-      child: Row(
-        children: <Widget>[
-          Expanded(
-            child: Text(title),
-          ),
-          child
-        ],
-      ),
-    );
-  }
 }

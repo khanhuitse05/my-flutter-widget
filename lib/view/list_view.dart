@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 
 import 'package:mywidget/theme/app_styles.dart';
+import 'package:mywidget/ui/default_title.dart';
 
 class ListDemoView extends StatefulWidget {
   @override
@@ -17,14 +18,14 @@ class _ListDemoViewState extends State<ListDemoView> {
         slivers: <Widget>[
           SliverList(
             delegate: SliverChildListDelegate([
-              _buildTitle("Documents"),
+              DefaultTitle("Documents"),
               _buildDocumentItem(
                   "Annual finance report", MaterialCommunityIcons.coin),
               _buildDocumentItem("Company meeting schedule",
                   MaterialCommunityIcons.washing_machine),
               _buildDocumentItem("Project quotations",
                   MaterialCommunityIcons.file_document_box_outline),
-              _buildTitle("Menu"),
+              DefaultTitle("Menu"),
               _buildMenuItem("Hotline: 080808080", Icons.call),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 32),
@@ -42,7 +43,7 @@ class _ListDemoViewState extends State<ListDemoView> {
                 ),
               ),
               _buildMenuItem("FAQs", Icons.question_answer),
-              _buildTitle("Setting"),
+              DefaultTitle("Setting"),
               _buildSettingItem("Notification", Icons.notifications_active, 3),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 32),
@@ -60,7 +61,7 @@ class _ListDemoViewState extends State<ListDemoView> {
                 ),
               ),
               _buildSettingItem("Language", Icons.language, 2),
-              _buildTitle("Steps"),
+              DefaultTitle("Steps"),
               Column(
                 children: <Widget>[
                   for (int i = 0; i < process.length; i++)
@@ -81,15 +82,6 @@ class _ListDemoViewState extends State<ListDemoView> {
 
   int _index = 0;
 
-  Widget _buildTitle(String title) {
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(16, 32, 16, 16),
-      child: Text(
-        title,
-        style: Theme.of(context).textTheme.headline6,
-      ),
-    );
-  }
 
   Widget _buildDocumentItem(String title, IconData icon) {
     return Padding(
