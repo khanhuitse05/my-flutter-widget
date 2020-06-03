@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mywidget/ui/utility/button_title.dart';
+import 'package:mywidget/core/constans.dart';
+import 'package:mywidget/ui/button_title.dart';
 
 class ContainerDemoView extends StatefulWidget {
   @override
@@ -7,9 +8,6 @@ class ContainerDemoView extends StatefulWidget {
 }
 
 class _ContainerDemoViewState extends State<ContainerDemoView> {
-  final _imageUrl =
-      "https://firebasestorage.googleapis.com/v0/b/my-media-11881.appspot.com/o/banner%2Fmec.jpeg?alt=media&token=745ccc74-6d5f-410b-96b2-bd82505c59c5";
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,7 +23,7 @@ class _ContainerDemoViewState extends State<ContainerDemoView> {
               image: bg != EBG.image
                   ? null
                   : DecorationImage(
-                      image: NetworkImage(_imageUrl), fit: BoxFit.cover),
+                      image: NetworkImage(bannerUrl), fit: BoxFit.cover),
               gradient: getGradient(),
               border: border ? Border.all(color: Colors.blue, width: 3) : null,
               borderRadius: borderRadius == ERadius.round

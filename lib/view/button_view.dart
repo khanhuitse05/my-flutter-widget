@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:mywidget/my_scaffold.dart';
+
 
 class ButtonView extends StatefulWidget {
   @override
@@ -10,9 +10,9 @@ class ButtonView extends StatefulWidget {
 class _ButtonViewState extends State<ButtonView> {
   @override
   Widget build(BuildContext context) {
-    return MyScaffold(
-      "Button",
-      child: CustomScrollView(
+    return Scaffold(
+      appBar: AppBar(title: Text("Button"),),
+      body: CustomScrollView(
         slivers: <Widget>[
           SliverPadding(
             padding: EdgeInsets.all(16),

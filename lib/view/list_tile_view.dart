@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mywidget/my_scaffold.dart';
+import 'package:mywidget/core/constans.dart';
+
 
 class ListTitleView extends StatefulWidget {
   @override
@@ -19,16 +20,10 @@ class _ListTitleViewState extends State<ListTitleView> {
             child: ListTile(
               selected: selected,
               onTap: () {},
-              title: Text("The Card Title"),
-              subtitle: Text(
-                  "Cras quis nulla commodo, aliquam lectus sed, blandit augue. Cras ullamcorper bibendum bibendum. Duis tincidunt urna non pretium porta."),
+              title: Text(kTitle),
+              subtitle: Text(kMessage),
               leading: leading
-                  ? Container(
-                      width: 56,
-                      height: 56,
-                      decoration: BoxDecoration(
-                          color: Colors.orange,
-                          borderRadius: BorderRadius.circular(10)),
+                  ? CircleAvatar(
                       child: Icon(
                         Icons.question_answer,
                         color: Colors.white,

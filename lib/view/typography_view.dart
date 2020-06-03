@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:mywidget/my_scaffold.dart';
+
+
 
 class TypographyView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MyScaffold(
-      'Typography',
-      child: ListView(
+    return Scaffold(
+      appBar: AppBar(title: Text("Typography"),),
+      body: ListView(
         padding: EdgeInsets.fromLTRB(
             16, 16, 16, 16 + MediaQuery.of(context).padding.bottom),
         children: <Widget>[

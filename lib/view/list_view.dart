@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
-import 'package:mywidget/my_scaffold.dart';
+
 import 'package:mywidget/theme/app_styles.dart';
 
 class ListDemoView extends StatefulWidget {
@@ -11,9 +11,9 @@ class ListDemoView extends StatefulWidget {
 class _ListDemoViewState extends State<ListDemoView> {
   @override
   Widget build(BuildContext context) {
-    return MyScaffold(
-      "List View",
-      child: CustomScrollView(
+    return Scaffold(
+      appBar: AppBar(title: Text("List View"),),
+      body: CustomScrollView(
         slivers: <Widget>[
           SliverList(
             delegate: SliverChildListDelegate([

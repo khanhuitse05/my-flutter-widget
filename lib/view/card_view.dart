@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mywidget/my_scaffold.dart';
+import 'package:mywidget/core/constans.dart';
 
 class CardDemoView extends StatefulWidget {
   @override
@@ -7,18 +7,13 @@ class CardDemoView extends StatefulWidget {
 }
 
 class _MyCardViewState extends State<CardDemoView> {
-  final _defaultText =
-      "Cras quis nulla commodo, aliquam lectus sed, blandit augue. Cras ullamcorper bibendum bibendum.";
-  final _imageUrl =
-      "https://firebasestorage.googleapis.com/v0/b/my-media-11881.appspot.com/o/banner%2Fbanner-5.jpg?alt=media&token=14a46027-e559-4e2c-a7de-853cda7add14";
-  final _imageUrl2 =
-      "https://firebasestorage.googleapis.com/v0/b/my-media-11881.appspot.com/o/banner%2Fmec.jpeg?alt=media&token=745ccc74-6d5f-410b-96b2-bd82505c59c5";
-
   @override
   Widget build(BuildContext context) {
-    return MyScaffold(
-      "Card view",
-      child: ListView(
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Card"),
+      ),
+      body: ListView(
         children: <Widget>[
           Container(
             margin: EdgeInsets.all(16),
@@ -27,7 +22,7 @@ class _MyCardViewState extends State<CardDemoView> {
                 color: Colors.grey[100],
                 borderRadius: BorderRadius.circular(10),
                 border: Border.all(color: Colors.grey[300], width: 1)),
-            child: Text(_defaultText),
+            child: Text(kMessage),
           ),
           Container(
             margin: EdgeInsets.all(16),
@@ -37,7 +32,7 @@ class _MyCardViewState extends State<CardDemoView> {
                 borderRadius: BorderRadius.circular(10),
                 border: Border.all(color: Colors.blue, width: 1)),
             child: Text(
-              _defaultText,
+              kMessage,
               style: TextStyle(color: Colors.blue),
             ),
           ),
@@ -49,7 +44,7 @@ class _MyCardViewState extends State<CardDemoView> {
               borderRadius: BorderRadius.circular(10),
             ),
             child: Text(
-              _defaultText,
+              kMessage,
               style: TextStyle(color: Colors.white),
             ),
           ),
@@ -66,7 +61,7 @@ class _MyCardViewState extends State<CardDemoView> {
                 style: TextStyle(color: Colors.white),
               ),
               subtitle: Text(
-                _defaultText,
+                kMessage,
                 style: TextStyle(color: Colors.white60),
               ),
             ),
@@ -91,7 +86,7 @@ class _MyCardViewState extends State<CardDemoView> {
                 color: Color(0xFF32D57A),
               ),
               child: Text(
-                _defaultText,
+                kMessage,
                 style: TextStyle(color: Colors.white),
               ),
             ),
@@ -109,7 +104,7 @@ class _MyCardViewState extends State<CardDemoView> {
                     blurRadius: 5,
                   ),
                 ]),
-            child: Text(_defaultText),
+            child: Text(kMessage),
           ),
           Container(
             margin: EdgeInsets.all(16),
@@ -117,9 +112,9 @@ class _MyCardViewState extends State<CardDemoView> {
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 image: DecorationImage(
-                    image: NetworkImage(_imageUrl2), fit: BoxFit.cover)),
+                    image: AssetImage(bannerUrl), fit: BoxFit.cover)),
             child: Text(
-              _defaultText + _defaultText,
+              kMessage + kMessage,
               style: TextStyle(color: Colors.blue),
             ),
           ),
@@ -134,21 +129,53 @@ class _MyCardViewState extends State<CardDemoView> {
               children: <Widget>[
                 Container(
                   height: 110,
-                  child: Image.network(
-                    _imageUrl,
+                  child: Image.asset(
+                    bannerUrl2,
                     fit: BoxFit.cover,
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
-                    _defaultText,
+                    kMessage,
                     style: Theme.of(context).textTheme.caption,
                   ),
                 ),
               ],
             ),
-          )
+          ),
+          Container(
+            margin: EdgeInsets.all(16),
+            child: Card(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  const SizedBox(height: 16),
+                  const ListTile(
+                    leading: Icon(
+                      Icons.album,
+                      size: 56,
+                    ),
+                    title: Text('The Enchanted Nightingale'),
+                    subtitle:
+                        Text('Music by Julie Gable. Lyrics by Sidney Stein.'),
+                  ),
+                  ButtonBar(
+                    children: <Widget>[
+                      FlatButton(
+                        child: const Text('BUY TICKETS'),
+                        onPressed: () {},
+                      ),
+                      FlatButton(
+                        child: const Text('LISTEN'),
+                        onPressed: () {},
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
         ],
       ),
     );

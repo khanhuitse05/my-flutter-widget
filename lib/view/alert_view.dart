@@ -1,7 +1,8 @@
 import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
-import 'package:mywidget/my_scaffold.dart';
+
 import 'package:flutter/cupertino.dart';
+import 'package:mywidget/core/constans.dart';
 
 class AlertDemoView extends StatefulWidget {
   @override
@@ -9,17 +10,14 @@ class AlertDemoView extends StatefulWidget {
 }
 
 class _AlertDemoViewState extends State<AlertDemoView> {
-  final String _title = "Message Preview";
-  final String _shortMessage =
-      "Curabitur lobortis id lorem id bibendum. Ut id consectetur magna. Quisque volutpat augue enim";
-  final String _message =
-      "Curabitur lobortis id lorem id bibendum. Ut id consectetur magna. Quisque volutpat augue enim, pulvinar lobortis nibh lacinia at. Vestibulum nec erat ut mi sollicitudin porttitor id sit amet risus";
 
   @override
   Widget build(BuildContext context) {
-    return MyScaffold(
-      "Alert view",
-      child: ListView(
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Alert"),
+      ),
+      body: ListView(
         padding: EdgeInsets.symmetric(vertical: 16),
         children: <Widget>[
           ListTile(
@@ -50,8 +48,8 @@ class _AlertDemoViewState extends State<AlertDemoView> {
                 context: context,
                 builder: (_) {
                   return CupertinoActionSheet(
-                    title: Text(_title),
-                    message: Text(_shortMessage),
+                    title: Text(kTitle),
+                    message: Text(kShortMessage),
                     cancelButton: CupertinoActionSheetAction(
                       child: Text("Cancel"),
                       onPressed: () {
@@ -80,8 +78,8 @@ class _AlertDemoViewState extends State<AlertDemoView> {
                 context: context,
                 builder: (_) {
                   return CupertinoAlertDialog(
-                    title: Text(_title),
-                    content: Text(_message),
+                    title: Text(kTitle),
+                    content: Text(kMessage),
                     actions: <Widget>[
                       CupertinoActionSheetAction(
                         child: Text("Yes"),
@@ -107,8 +105,8 @@ class _AlertDemoViewState extends State<AlertDemoView> {
                 context: context,
                 builder: (_) {
                   return AlertDialog(
-                    title: Text(_title),
-                    content: Text(_message),
+                    title: Text(kTitle),
+                    content: Text(kMessage),
                     actions: <Widget>[
                       FlatButton(
                         child: Text("YES"),
@@ -143,7 +141,7 @@ class _AlertDemoViewState extends State<AlertDemoView> {
                         ),
                       ),
                     ),
-                    content: Text(_message),
+                    content: Text(kMessage),
                     actions: <Widget>[
                       FlatButton(
                         child: Text("YES"),
@@ -169,8 +167,8 @@ class _AlertDemoViewState extends State<AlertDemoView> {
                     padding: EdgeInsets.only(
                         bottom: MediaQuery.of(context).padding.bottom, top: 16),
                     child: ListTile(
-                      title: Text(_title),
-                      subtitle: Text(_message),
+                      title: Text(kTitle),
+                      subtitle: Text(kMessage),
                     ),
                   );
                 });

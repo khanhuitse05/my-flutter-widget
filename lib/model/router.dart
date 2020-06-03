@@ -5,6 +5,7 @@ import 'package:mywidget/view/button_view.dart';
 import 'package:mywidget/view/bottom_bar_view.dart';
 import 'package:mywidget/view/card_view.dart';
 import 'package:mywidget/view/container_view.dart';
+import 'package:mywidget/view/cupertino/cupertino_view.dart';
 import 'package:mywidget/view/other_view.dart';
 import 'package:mywidget/view/row_and_column_view.dart';
 import 'package:mywidget/view/stack_view.dart';
@@ -22,6 +23,9 @@ class AppRouter {
       case '/':
         return MaterialPageRoute(
             builder: (_) => HomeView(), settings: settings);
+      case '/cupertino-view':
+        return MaterialPageRoute(
+            builder: (_) => CupertinoView(), settings: settings);
       case '/typography-view':
         return MaterialPageRoute(
             builder: (_) => TypographyView(), settings: settings);
