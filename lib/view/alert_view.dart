@@ -1,4 +1,3 @@
-import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter/cupertino.dart';
@@ -49,18 +48,7 @@ class _AlertDemoViewState extends State<AlertDemoView> {
                 context: context,
                 builder: (_) {
                   return AlertDialog(
-                    title: Center(
-                      child: Container(
-                        height: 64,
-                        width: 64,
-                        child: const FlareActor(
-                          "assets/success.flr",
-                          alignment: Alignment.center,
-                          fit: BoxFit.fill,
-                          animation: 'Untitled',
-                        ),
-                      ),
-                    ),
+                    title: Icon(Icons.check_circle, size: 64, color: Colors.green,),
                     content: Text(kMessage),
                     actions: <Widget>[
                       FlatButton(

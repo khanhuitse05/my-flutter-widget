@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 class Menu {
   final String title;
   final String body;
+  final String url;
 
   String get router {
     String _temp = title;
@@ -13,7 +14,7 @@ class Menu {
 
   final IconData icon;
 
-  Menu(this.title, {this.body, this.icon});
+  Menu(this.title, {this.body, this.icon, this.url});
 
   onClick(BuildContext context) {
     Navigator.pushNamed(context, router);

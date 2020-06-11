@@ -1,6 +1,7 @@
 const String kAppName = 'My Widget';
 
 const String kAppVersion = '1.0.0';
+const String kGithubUrl = 'https://github.com/PingAK9/my-flutter-widget';
 
 const String kTitle = "Message Preview";
 const String kShortMessage =

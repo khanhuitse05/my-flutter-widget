@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_icons/flutter_icons.dart';
 
 import 'package:mywidget/theme/app_styles.dart';
 import 'package:mywidget/ui/default_title.dart';
@@ -20,11 +19,11 @@ class _ListDemoViewState extends State<ListDemoView> {
             delegate: SliverChildListDelegate([
               DefaultTitle("Documents"),
               _buildDocumentItem(
-                  "Annual finance report", MaterialCommunityIcons.coin),
+                  "Annual finance report", Icons.color_lens),
               _buildDocumentItem("Company meeting schedule",
-                  MaterialCommunityIcons.washing_machine),
+                  Icons.laptop_mac),
               _buildDocumentItem("Project quotations",
-                  MaterialCommunityIcons.file_document_box_outline),
+                  Icons.print),
               DefaultTitle("Menu"),
               _buildMenuItem("Hotline: 080808080", Icons.call),
               Padding(
